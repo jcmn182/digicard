@@ -23,8 +23,6 @@ export default function LoginPage() {
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    console.log(formData);
-    // Send this data to your server
   };
 
   const isFormValid = formData.email && formData.password && isValidEmail;

@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import {
-  Button, TextField, Container, Typography, Grid, Divider,
+  Button, TextField, Container, Typography, Grid, Divider, Link,
 } from '@mui/material';
 // icons
 import { FaLinkedin } from 'react-icons/fa';
@@ -151,7 +151,9 @@ function RegisterForm() {
         </div>
         <div className={styles.login_container}>
           Already have an account?
-          <button type="button">Login</button>
+          <Link href="../../sign_in">
+            <button type="button">Login</button>
+          </Link>
         </div>
       </Container>
     </div>
