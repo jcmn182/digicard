@@ -78,7 +78,7 @@ export default function LoginPage() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                style={{ margin: '24px 0 16px', backgroundColor: isFormValid ? '#16405c' : 'gray' }}
+                style={{ margin: '24px 0 16px', backgroundColor: isFormValid ? '#16405c' : undefined }}
                 disabled={!isFormValid}
               >
                 Sign In

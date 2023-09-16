@@ -1,16 +1,17 @@
 'use client';
 
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState } from 'react';
+import NextLink from 'next/link';
+
+import { useState } from 'react';
 import {
   Button, TextField, Container, Typography, Grid, Divider, Link,
 } from '@mui/material';
-// icons
+// Assuming you have these icon imports, if not, you should install and import them as necessary.
+import { FcGoogle } from 'react-icons/fc';
+import { BsFacebook } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
-import { BsFacebook } from 'react-icons/bs';
-import { FcGoogle } from 'react-icons/fc';
-// styles
 import styles from './styles.module.css';
 
 function RegisterForm() {
@@ -18,12 +19,14 @@ function RegisterForm() {
     firstName: '',
     lastName: '',
     email: '',
+    password: '',
   });
 
   const [touchedFields, setTouchedFields] = useState({
     firstName: false,
     lastName: false,
     email: false,
+    password: false,
   });
 
   const getError = (name: string, value: string) => {
@@ -39,6 +42,15 @@ function RegisterForm() {
       const isValidEmail = emailPattern.test(value);
       if (!isValidEmail) {
         return 'Invalid email address.';
+      }
+    }
+
+    if (name === 'password') {
+      const hasUpperCase = /[A-Z]/.test(value);
+      const hasLowerCase = /[a-z]/.test(value);
+      const hasNumber = /\d/.test(value) && value.replace(/\D/g, '').length > 1;
+      if (!hasUpperCase || !hasLowerCase || !hasNumber) {
+        return 'Password must have at least one uppercase letter, one lowercase letter, and a number.';
       }
     }
 
@@ -125,20 +137,39 @@ function RegisterForm() {
                 helperText={touchedFields.email ? getError('email', formData.email) : ''}
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                size="small"
+                variant="outlined"
+                required
+                fullWidth
+                id="password"
+                label="Password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                value={formData.password}
+                onChange={handleInputChange}
+                error={touchedFields.password && Boolean(getError('password', formData.password))}
+                helperText={touchedFields.password ? getError('password', formData.password) : ''}
+              />
+            </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            style={{
-              marginTop: '1rem',
-              backgroundColor: isButtonDisabled ? undefined : '#16405c',
-            }}
-            disabled={isButtonDisabled}
-          >
-            Next
-          </Button>
+          <NextLink href="../../dash_board">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              style={{
+                marginTop: '1rem',
+                backgroundColor: isButtonDisabled ? undefined : '#16405c',
+              }}
+              disabled={isButtonDisabled}
+            >
+              Next
+            </Button>
+          </NextLink>
         </form>
         <Divider style={{ padding: '30px 40px' }}>
           <span style={{ color: '#a8aaab' }}>Or</span>
@@ -157,7 +188,6 @@ function RegisterForm() {
         </div>
       </Container>
     </div>
-
   );
 }
 
