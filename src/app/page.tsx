@@ -5,7 +5,7 @@ import people from '../assets/register/people.webp';
 // components
 import RegisterForm from '../components/registerForm';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <main className={styles.main}>
       <div className={styles.container}>

@@ -14,7 +14,7 @@ import { FaLinkedin } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import styles from './styles.module.css';
 
-function RegisterForm() {
+function RegisterForm(): JSX.Element {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',

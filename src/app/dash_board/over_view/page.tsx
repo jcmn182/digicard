@@ -9,7 +9,7 @@ import MostViewed from '../../../components/tables/MostViewed';
 import MostSaved from '../../../components/tables/mostSaved';
 import Charts from '../../../components/tables/charts';
 
-export default function OverView() {
+export default function OverView(): JSX.Element {
   return (
     <Grid container spacing={3}>
       {/* First Row */}
