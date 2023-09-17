@@ -126,10 +126,10 @@ export default function Charts() {
         </Grid>
       </LocalizationProvider>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} maxHeight={400}>
+        <Grid item xs={12} sm={4} maxHeight={400}>
           <Line options={options} data={data} />
         </Grid>
-        <Grid item xs={12} sm={6} maxHeight={400}>
+        <Grid item xs={12} sm={4} maxHeight={400}>
           <Line options={options} data={data2} />
         </Grid>
       </Grid>
