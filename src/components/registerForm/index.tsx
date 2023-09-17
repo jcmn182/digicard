@@ -155,7 +155,7 @@ function RegisterForm() {
               />
             </Grid>
           </Grid>
-          <NextLink href="../../dash_board">
+          <NextLink href="../../dash_board/over_view">
             <Button
               type="submit"
               fullWidth
