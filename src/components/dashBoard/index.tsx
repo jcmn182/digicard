@@ -1,5 +1,6 @@
 'use client';
 
+import NextLink from 'next/link';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -16,7 +17,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { useState } from 'react';
 import {
-  FcBullish, FcConferenceCall, FcDocument, FcLike, FcMenu, FcNext, FcPrevious, FcSettings,
+  FcBullish, FcConferenceCall, FcDocument,
+  FcHome,
+  FcLike, FcMenu, FcNext, FcPrevious, FcSettings,
 } from 'react-icons/fc';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { Avatar, Badge } from '@mui/material';
@@ -72,7 +75,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function Dashboard() {
+export default function Dashboard({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -127,6 +130,7 @@ export default function Dashboard() {
             boxShadow: '2px 0 15px rgba(0, 0, 0, 0.2)', // Adding shadow for the card effect
             borderRadius: '0 10px 10px 0', // Optional: rounded corners on the right for added touch
             backgroundColor: '#f4f4f4', // Optional: Slight change in background color
+            borderRight: 0,
           },
         }}
         variant="persistent"
@@ -140,80 +144,71 @@ export default function Dashboard() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FcDocument />
-              </ListItemIcon>
-              <ListItemText primary="My cards" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FcSettings />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FcBullish />
-              </ListItemIcon>
-              <ListItemText primary="Analytics" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FcConferenceCall />
-              </ListItemIcon>
-              <ListItemText primary="Contact manager" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-        <Divider />
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FcLike />
-              </ListItemIcon>
-              <ListItemText primary="Support" />
-            </ListItemButton>
-          </ListItem>
+          <NextLink href="../../dash_board/over_view">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <FcHome />
+                </ListItemIcon>
+                <ListItemText primary="Over view" />
+              </ListItemButton>
+            </ListItem>
+          </NextLink>
+          <NextLink href="../../dash_board/cards">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <FcDocument />
+                </ListItemIcon>
+                <ListItemText primary="My cards" />
+              </ListItemButton>
+            </ListItem>
+          </NextLink>
+          <NextLink href="../../dash_board/settings">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <FcSettings />
+                </ListItemIcon>
+                <ListItemText primary="Settings" />
+              </ListItemButton>
+            </ListItem>
+          </NextLink>
+          <NextLink href="../../dash_board/analytics">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <FcBullish />
+                </ListItemIcon>
+                <ListItemText primary="Analytics" />
+              </ListItemButton>
+            </ListItem>
+          </NextLink>
+          <NextLink href="../../dash_board/contact_manager">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <FcConferenceCall />
+                </ListItemIcon>
+                <ListItemText primary="Contact manager" />
+              </ListItemButton>
+            </ListItem>
+          </NextLink>
+          <NextLink href="../../dash_board/support">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <FcLike />
+                </ListItemIcon>
+                <ListItemText primary="Support" />
+              </ListItemButton>
+            </ListItem>
+          </NextLink>
         </List>
       </Drawer>
-      <Main open={open}>
+      <Main>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        {children}
       </Main>
     </Box>
   );
