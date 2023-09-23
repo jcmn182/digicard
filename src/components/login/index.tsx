@@ -7,7 +7,7 @@ import {
 import { FcGoogle } from 'react-icons/fc';
 import { FaMicrosoft } from 'react-icons/fa';
 
-export default function LoginPage() {
+export default function LoginPage(): JSX.Element {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isValidEmail, setIsValidEmail] = useState(true);
 

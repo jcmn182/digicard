@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-export default function MostSaved() {
+export default function MostSaved(): JSX.Element {
   const cardsData = [];
   for (let i = 0; i < 5; i += 1) {
     cardsData.push({
