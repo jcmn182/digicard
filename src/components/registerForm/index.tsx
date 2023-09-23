@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 
 import { useState } from 'react';
 import {
-  Button, TextField, Container, Typography, Grid, Divider, Link,
+  Button, TextField, Container, Typography, Grid, Divider, Link, useMediaQuery, useTheme,
 } from '@mui/material';
 // Assuming you have these icon imports, if not, you should install and import them as necessary.
 import { FcGoogle } from 'react-icons/fc';
@@ -21,6 +21,9 @@ function RegisterForm(): JSX.Element {
     email: '',
     password: '',
   });
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down(380));
 
   const [touchedFields, setTouchedFields] = useState({
     firstName: false,
@@ -80,7 +83,7 @@ function RegisterForm(): JSX.Element {
 
   return (
     <div className={styles.main_container}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{ marginTop: 2, marginBottom: 1 }}>
         <Typography variant="h5" align="center" gutterBottom style={{ padding: '10px 10px 0px 10px' }}>
           Try everything free, for 14-days!
         </Typography>
@@ -171,7 +174,7 @@ function RegisterForm(): JSX.Element {
             </Button>
           </NextLink>
         </form>
-        <Divider style={{ padding: '30px 40px' }}>
+        <Divider style={{ padding: isSmallScreen ? '10px 40px' : '30px 40px' }}>
           <span style={{ color: '#a8aaab' }}>Or</span>
         </Divider>
         <div className={styles.buttons_container}>

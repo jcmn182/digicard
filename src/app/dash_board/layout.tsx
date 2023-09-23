@@ -6,7 +6,7 @@ import TopMenu from '../../components/topMenu';
 export const metadata = {
   title: 'dashboard',
   description: 'general dashboar to handle all tasks',
-
+};
 export default function DashBoardLayout({
   children,
 }: {
