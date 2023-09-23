@@ -32,14 +32,13 @@
     display: flex;
     justify-content: center;
     font-size: 15px;
-    margin-top: 20px;
+    margin: 20px;
 }
 
 .login_container button {
     background-color: transparent;
     border: none;
     font-size: 15px;
-    margin: 0;
     padding: 0;
     width: auto;
     overflow: visible;
@@ -47,3 +46,10 @@
     color : #16405c;
     margin-left: 10px;
 }
+
+@media (max-width: 380px){
+
+    .login_container{
+        margin: 0px;
+    }
+  }

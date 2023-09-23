@@ -11,7 +11,7 @@ import Charts from '../../../components/tables/charts';
 
 export default function OverView(): JSX.Element {
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} paddingBottom={2}>
       {/* First Row */}
       <Grid item xs={12} sm={8} sx={{ marginTop: 2, marginBottom: 1 }}>
         <Typography variant="h5">Hi Juan Carlos,</Typography>
